@@ -154,7 +154,7 @@ class Event extends OriginalEvent
         }
 
         if ($this->outputNotBeingCaptured()) {
-            $this->output = storage_path('logs/eyewitness_cron_'.sha1($this->mutexName()).'.cron.log');
+            $this->output = storage_path('logs/eyewitness-cron-'.sha1($this->mutexName()).'.cron.log');
         }
     }
 
