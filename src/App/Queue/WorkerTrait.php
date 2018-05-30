@@ -112,9 +112,11 @@ trait WorkerTrait
      */
     public function sleep($seconds)
     {
-        foreach ($this->eyeQueues as $tube) {
-            $this->cache->add('eyewitness_q_idle_time_'.$this->eyeConnection.'_'.$tube, 0, 180);
-            $this->cache->increment('eyewitness_q_idle_time_'.$this->eyeConnection.'_'.$tube, $seconds);
+        if (is_array($this->eyeQueues)) {
+            foreach ($this->eyeQueues as $tube) {
+                $this->cache->add('eyewitness_q_idle_time_'.$this->eyeConnection.'_'.$tube, 0, 180);
+                $this->cache->increment('eyewitness_q_idle_time_'.$this->eyeConnection.'_'.$tube, $seconds);
+            }
         }
 
         parent::sleep($seconds);
