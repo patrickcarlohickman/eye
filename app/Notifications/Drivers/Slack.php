@@ -32,7 +32,7 @@ class Slack implements DriverInterface
             'attachments' => [[
                 'text' => $message->markupDescription(),
                 'color' => $message->isError() ? 'danger' : 'good',
-                'fields' => $message->meta()
+                'fields' => $this->parseMeta($message->meta())
             ]]
         ];
 
@@ -46,4 +46,23 @@ class Slack implements DriverInterface
         }
     }
 
+    /**
+     * Format the meta content for Slack attachments.
+     * 
+     * @param  array  $meta
+     * @return array
+     */
+    protected function parseMeta($meta)
+    {
+        $fields = [];
+        
+        foreach ($meta as $key => $value) {
+            $fields[] = [
+                'title' => $key,
+                'value' => $value,
+            ];
+        }
+        
+        return $fields;
+    }
 }
