@@ -154,7 +154,7 @@ class Ssl extends BaseMonitor
     protected function saveSslRecord($domain, $result)
     {
         $record['grade'] = $result['results']['grade'];
-        $record['results_url'] = $result['internals']['alternate_url'];
+        $record['results_url'] = 'https://www.htbridge.com/ssl/?id=' . $result['internals']['short_id'];
 
         if (isset($result['certificates']['information'][0])) {
             $record['valid'] = $result['certificates']['information'][0]['valid_now'];
