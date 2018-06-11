@@ -127,7 +127,7 @@ class SslTest extends TestCase
         Cache::shouldReceive('pull')->with('eyewitness_ssl_job_id_http://example.com')->once()->andReturn('job123');
 
         $this->api->shouldReceive('sslResult')->with('job123')->once()->andReturn(['results' => ['grade' => 'A+'],
-                                                                            'internals' => ['alternate_url' => 'example.com'],
+                                                                            'internals' => ['short_id' => 'abcdef'],
                                                                             'certificates' => ['information' => [0 => [
                                                                                 'valid_now' => false,
                                                                                 'valid_from' => '12345',
@@ -145,7 +145,7 @@ class SslTest extends TestCase
         $this->assertDatabaseHas('eyewitness_io_history_monitors', ['type' => 'ssl',
                                                                     'meta' => $domain,
                                                                     'record' => json_encode(['grade' => 'A+',
-                                                                                             'results_url' => 'example.com',
+                                                                                             'results_url' => 'https://www.htbridge.com/ssl/?id=abcdef',
                                                                                              'valid' => false,
                                                                                              'valid_from' => '12345',
                                                                                              'valid_to' => '67890',
@@ -165,7 +165,7 @@ class SslTest extends TestCase
 
         factory(History::class)->create(['meta' => $domain,
                                          'record' => ['grade' => 'A+',
-                                                      'results_url' => 'example.com',
+                                                      'results_url' => 'https://www.htbridge.com/ssl/?id=abcdef',
                                                       'valid' => false,
                                                       'valid_from' => '12345',
                                                       'valid_to' => '67890',
@@ -174,7 +174,7 @@ class SslTest extends TestCase
                                                       'issuer' => 'EyeCA']]);
 
         $this->api->shouldReceive('sslResult')->with('job123')->once()->andReturn(['results' => ['grade' => 'A+'],
-                                                                            'internals' => ['alternate_url' => 'example.com'],
+                                                                            'internals' => ['short_id' => 'abcdef'],
                                                                             'certificates' => ['information' => [0 => [
                                                                                 'valid_now' => false,
                                                                                 'valid_from' => '12345',
@@ -192,7 +192,7 @@ class SslTest extends TestCase
         $this->assertDatabaseHas('eyewitness_io_history_monitors', ['type' => 'ssl',
                                                                     'meta' => $domain,
                                                                     'record' => json_encode(['grade' => 'A+',
-                                                                                             'results_url' => 'example.com',
+                                                                                             'results_url' => 'https://www.htbridge.com/ssl/?id=abcdef',
                                                                                              'valid' => false,
                                                                                              'valid_from' => '12345',
                                                                                              'valid_to' => '67890',
@@ -217,7 +217,7 @@ class SslTest extends TestCase
 
         factory(History::class)->create(['meta' => $domain,
                                          'record' => ['grade' => 'A+',
-                                                      'results_url' => 'example.com',
+                                                      'results_url' => 'https://www.htbridge.com/ssl/?id=abcdef',
                                                       'valid' => false,
                                                       'valid_from' => '12345',
                                                       'valid_to' => '67890',
@@ -226,7 +226,7 @@ class SslTest extends TestCase
                                                       'issuer' => 'EyeCA']]);
 
         $this->api->shouldReceive('sslResult')->with('job123')->once()->andReturn(['results' => ['grade' => 'A+'],
-                                                                            'internals' => ['alternate_url' => 'example.com'],
+                                                                            'internals' => ['short_id' => 'abcdef'],
                                                                             'certificates' => ['information' => [0 => [
                                                                                 'valid_now' => false,
                                                                                 'valid_from' => '12345',
@@ -244,7 +244,7 @@ class SslTest extends TestCase
         $this->assertDatabaseHas('eyewitness_io_history_monitors', ['type' => 'ssl',
                                                                     'meta' => $domain,
                                                                     'record' => json_encode(['grade' => 'A+',
-                                                                                             'results_url' => 'example.com',
+                                                                                             'results_url' => 'https://www.htbridge.com/ssl/?id=abcdef',
                                                                                              'valid' => false,
                                                                                              'valid_from' => '12345',
                                                                                              'valid_to' => '67890',
@@ -269,7 +269,7 @@ class SslTest extends TestCase
 
         factory(History::class)->create(['meta' => $domain,
                                          'record' => ['grade' => 'A+',
-                                                      'results_url' => 'example.com',
+                                                      'results_url' => 'https://www.htbridge.com/ssl/?id=abcdef',
                                                       'valid' => false,
                                                       'valid_from' => '12345',
                                                       'valid_to' => '67890',
@@ -278,7 +278,7 @@ class SslTest extends TestCase
                                                       'issuer' => 'EyeCA']]);
 
         $this->api->shouldReceive('sslResult')->with('job123')->once()->andReturn(['results' => ['grade' => 'A+'],
-                                                                            'internals' => ['alternate_url' => 'example.com'],
+                                                                            'internals' => ['short_id' => 'abcdef'],
                                                                             'certificates' => ['information' => [0 => [
                                                                                 'valid_now' => false,
                                                                                 'valid_from' => '12345',
@@ -296,7 +296,7 @@ class SslTest extends TestCase
         $this->assertDatabaseHas('eyewitness_io_history_monitors', ['type' => 'ssl',
                                                                     'meta' => $domain,
                                                                     'record' => json_encode(['grade' => 'A+',
-                                                                                             'results_url' => 'example.com',
+                                                                                             'results_url' => 'https://www.htbridge.com/ssl/?id=abcdef',
                                                                                              'valid' => false,
                                                                                              'valid_from' => '12345',
                                                                                              'valid_to' => '67890',
@@ -321,7 +321,7 @@ class SslTest extends TestCase
 
         factory(History::class)->create(['meta' => $domain,
                                          'record' => ['grade' => 'A+',
-                                                      'results_url' => 'example.com',
+                                                      'results_url' => 'https://www.htbridge.com/ssl/?id=abcdef',
                                                       'valid' => true,
                                                       'valid_from' => '12345',
                                                       'valid_to' => '67890',
@@ -330,7 +330,7 @@ class SslTest extends TestCase
                                                       'issuer' => 'EyeCA']]);
 
         $this->api->shouldReceive('sslResult')->with('job123')->once()->andReturn(['results' => ['grade' => 'A+'],
-                                                                            'internals' => ['alternate_url' => 'example.com'],
+                                                                            'internals' => ['short_id' => 'abcdef'],
                                                                             'certificates' => ['information' => [0 => [
                                                                                 'valid_now' => false,
                                                                                 'valid_from' => '12345',
@@ -348,7 +348,7 @@ class SslTest extends TestCase
         $this->assertDatabaseHas('eyewitness_io_history_monitors', ['type' => 'ssl',
                                                                     'meta' => $domain,
                                                                     'record' => json_encode(['grade' => 'A+',
-                                                                                             'results_url' => 'example.com',
+                                                                                             'results_url' => 'https://www.htbridge.com/ssl/?id=abcdef',
                                                                                              'valid' => false,
                                                                                              'valid_from' => '12345',
                                                                                              'valid_to' => '67890',
@@ -373,7 +373,7 @@ class SslTest extends TestCase
 
         factory(History::class)->create(['meta' => $domain,
                                          'record' => ['grade' => 'A+',
-                                                      'results_url' => 'example.com',
+                                                      'results_url' => 'https://www.htbridge.com/ssl/?id=abcdef',
                                                       'valid' => true,
                                                       'valid_from' => '12345',
                                                       'valid_to' => '67890',
@@ -382,7 +382,7 @@ class SslTest extends TestCase
                                                       'issuer' => 'EyeCA']]);
 
         $this->api->shouldReceive('sslResult')->with('job123')->once()->andReturn(['results' => ['grade' => 'B'],
-                                                                            'internals' => ['alternate_url' => 'example.com'],
+                                                                            'internals' => ['short_id' => 'abcdef'],
                                                                             'certificates' => ['information' => [0 => [
                                                                                 'valid_now' => true,
                                                                                 'valid_from' => '12345',
@@ -400,7 +400,7 @@ class SslTest extends TestCase
         $this->assertDatabaseHas('eyewitness_io_history_monitors', ['type' => 'ssl',
                                                                     'meta' => $domain,
                                                                     'record' => json_encode(['grade' => 'B',
-                                                                                             'results_url' => 'example.com',
+                                                                                             'results_url' => 'https://www.htbridge.com/ssl/?id=abcdef',
                                                                                              'valid' => true,
                                                                                              'valid_from' => '12345',
                                                                                              'valid_to' => '67890',
