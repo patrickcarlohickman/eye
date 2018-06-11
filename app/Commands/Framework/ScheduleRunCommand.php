@@ -47,11 +47,7 @@ class ScheduleRunCommand extends OriginalScheduleRunCommand
             }
 
             if ($event->onOneServer) {
-                if ($this->schedule->allowServerToRun($event, $this->startedAt)) {
-                    $this->runEvent($event);
-                } else {
-                    $this->line('<info>Skipping command (already run on another server):</info> '.$event->getSummaryForDisplay());
-                }
+                $this->runSingleServerEvent($event);
             } else {
                 $this->runEvent($event);
             }
