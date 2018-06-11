@@ -19,9 +19,9 @@ class CreateEyewitnessIoHistoryQueueTable extends Migration
             $table->integer('pending_count')->unsigned()->default(0);
             $table->integer('failed_count')->unsigned()->default(0);
             $table->integer('exception_count')->unsigned()->default(0);
-            $table->decimal('sonar_time', 8,2)->unsigned()->default(0);
+            $table->decimal('sonar_time', 10,2)->unsigned()->default(0);
             $table->integer('sonar_count')->unsigned()->default(0);
-            $table->decimal('process_time', 8,2)->unsigned()->default(0);
+            $table->decimal('process_time', 10,2)->unsigned()->default(0);
             $table->integer('process_count')->unsigned()->default(0);
             $table->integer('idle_time')->unsigned()->default(0);
             $table->integer('sonar_deployed')->nullable()->default(null);

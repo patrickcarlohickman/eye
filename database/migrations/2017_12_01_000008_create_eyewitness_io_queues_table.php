@@ -18,7 +18,7 @@ class CreateEyewitnessIoQueuesTable extends Migration
             $table->string('connection', 191);
             $table->string('tube', 191);
             $table->string('driver', 191);
-            $table->decimal('current_wait_time')->default(0);
+            $table->decimal('current_wait_time', 10, 2)->default(0);
             $table->boolean('healthy')->nullable()->default(null)->index();
             $table->boolean('alert_on_failed_job')->default(true);
             $table->integer('alert_heartbeat_greater_than')->default(120);

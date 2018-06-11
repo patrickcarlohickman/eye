@@ -65,19 +65,24 @@ trait WorkerTrait
     }
 
     /**
-     * Record the end of the job details.
+     * Record the end of the job details. Ignore the sonar job from artifically inflating
+     * the queue counters.
      *
      * @param  float  $startTime
+     * @param  string  $jobName
      * @return void
      */
-    public function recordJobEnd($startTime)
+    public function recordJobEnd($startTime, $jobName)
     {
         $endTime = round((microtime(true) - $startTime)*1000);
 
         $this->cache->add('eyewitness_q_process_time_'.$this->currentQueue->id, 0, 180);
         $this->cache->increment('eyewitness_q_process_time_'.$this->currentQueue->id, $endTime);
-        $this->cache->add('eyewitness_q_process_count_'.$this->currentQueue->id, 0, 180);
-        $this->cache->increment('eyewitness_q_process_count_'.$this->currentQueue->id);
+
+        if ($jobName !== "Eyewitness\\Eye\\Queue\\Jobs\\Sonar") {
+            $this->cache->add('eyewitness_q_process_count_'.$this->currentQueue->id, 0, 180);
+            $this->cache->increment('eyewitness_q_process_count_'.$this->currentQueue->id);
+        }
     }
 
     /**

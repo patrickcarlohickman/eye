@@ -32,7 +32,7 @@ class Worker extends OriginalWorker
         } catch (Throwable $e) {
             $this->recordJobException($e);
         } finally {
-            $this->recordJobEnd($startTime);
+            $this->recordJobEnd($startTime, $job->resolveName());
         }
     }
 }

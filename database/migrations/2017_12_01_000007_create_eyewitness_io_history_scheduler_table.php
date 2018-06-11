@@ -16,7 +16,7 @@ class CreateEyewitnessIoHistorySchedulerTable extends Migration
         Schema::connection(config('eyewitness.eyewitness_database_connection'))->create('eyewitness_io_history_scheduler', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('scheduler_id')->unsigned()->index();
-            $table->decimal('time_to_run', 9, 4)->nullable()->default(null);
+            $table->decimal('time_to_run', 10, 4)->nullable()->default(null);
             $table->integer('exitcode')->index()->nullable()->default(null);
             $table->text('output')->nullable()->default(null);
             $table->boolean('overdue')->default(false);
