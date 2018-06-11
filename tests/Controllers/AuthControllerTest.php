@@ -103,6 +103,20 @@ class AuthControllerTest extends TestCase
         $response->assertRedirect($this->home.'/dashboard#overview');
     }
 
+    public function test_closure_auth_succeds_with_login_disabled()
+    {
+        $this->app['config']->set('eyewitness.login_disabled', true);
+
+        Eye::auth(function ($request) {
+            return true;
+        });
+
+        $response = $this->get($this->home);
+
+        $response->assertSessionMissing('eyewitness:auth');
+        $response->assertRedirect($this->home.'/dashboard#overview');
+    }
+
     public function test_closure_auth_fails()
     {
         Eye::auth(function ($request) {

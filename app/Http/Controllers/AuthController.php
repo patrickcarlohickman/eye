@@ -15,12 +15,12 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        if (config('eyewitness.login_disabled', false)) {
-            return redirect('/');
-        }
-
         if ($request->session()->has('eyewitness:auth') || Eye::check($request)) {
             return redirect(route('eyewitness.dashboard').'#overview');
+        }
+
+        if (config('eyewitness.login_disabled', false)) {
+            return redirect('/');
         }
 
         return view('eyewitness::login');
