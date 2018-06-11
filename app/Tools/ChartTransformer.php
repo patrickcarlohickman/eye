@@ -87,7 +87,9 @@ class ChartTransformer
         $history = CustomHistory::where('meta', $witness->getSafeName())->get()->groupBy(function($item) {
             return $item->created_at->format('Y-m-d');
         })->map(function ($row) {
-            return round($row->avg('value'), 2);
+            return round($row->filter(function($item) {
+                return (! is_null($item->value));
+            })->avg('value'), 2);
         });
 
         // Fill the array gaps - because the chart wont populate correctly without 0 values
