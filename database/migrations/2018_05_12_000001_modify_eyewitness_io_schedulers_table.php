@@ -28,6 +28,8 @@ class ModifyEyewitnessIoSchedulersTable extends Migration
     {
         Schema::connection(config('eyewitness.eyewitness_database_connection'))->table('eyewitness_io_schedulers', function (Blueprint $table) {
             $table->dropColumn('last_run');
+        });
+        Schema::connection(config('eyewitness.eyewitness_database_connection'))->table('eyewitness_io_schedulers', function (Blueprint $table) {
             $table->dropColumn('alert_last_run_greater_than');
         });
     }
