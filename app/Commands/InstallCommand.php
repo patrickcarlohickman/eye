@@ -82,7 +82,7 @@ class InstallCommand extends Command
     {
         $this->info('______________________________________');
         $this->info(' ');
-        $this->info('Running inital checks. This includes some calls to external APIs so it might take a few moments...');
+        $this->info('Running initial checks. This includes some calls to external APIs so it might take a few moments...');
         $this->info(' ');
     }
 
