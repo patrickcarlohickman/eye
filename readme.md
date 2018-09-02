@@ -14,7 +14,7 @@ Please visit our documentation section for detailed information on all aspect of
 
 ### Security Vulnerabilites
 
-If you discover a security vulnerability within this pacakge, please email security@eyewitness.io instead of using the issue tracker. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within this package, please email security@eyewitness.io instead of using the issue tracker. All security vulnerabilities will be promptly addressed.
 
 ### License
 
