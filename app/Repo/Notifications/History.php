@@ -27,6 +27,6 @@ class History extends Model
      */
     protected $casts = [
         'meta' => 'array',
-        'created_at' => 'date'
+        'created_at' => 'datetime'
     ];
 }
