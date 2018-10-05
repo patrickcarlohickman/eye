@@ -126,7 +126,7 @@
                                 <p class="block tracking-wide text-grey text-right mr-1">Route cache</p>
                             </div>
                             <div class="w-1/2 inline-flex">
-                                <p class="ml-4 max-w-full font-mono rounded text-xs text-white p-1 {{ $eye->application()->find('cache_route') ? 'bg-green' : 'bg-red' }}">{{ $eye->application()->find('cache_config') ? 'Cached' : 'Disabled' }}</p>
+                                <p class="ml-4 max-w-full font-mono rounded text-xs text-white p-1 {{ $eye->application()->find('cache_route') ? 'bg-green' : 'bg-red' }}">{{ $eye->application()->find('cache_route') ? 'Cached' : 'Disabled' }}</p>
                             </div>
                         </div>
                     </div>
